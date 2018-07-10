@@ -1,4 +1,5 @@
 "# OBFBF" 
+
     out = OBFBF(Y,X,M)
     
     ## posterior means
