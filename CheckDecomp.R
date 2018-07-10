@@ -2,6 +2,8 @@ CheckDecomp = function(chosen,G){
   
   # OBJ: check if edge-perturbed graph is decomposable
   #      From conditions (c) and (d) section 2.1 Green Thomas
+  # "Sampling decomposable graphs using a Markov chain on junction trees"
+  
   # Inputs
   # chosen  = scalar index of chosen edge (out of q(q-1) choices) 
   # G       = q(q-1) vector representing the starting graph
@@ -91,48 +93,8 @@ CheckDecomp = function(chosen,G){
       } else if(sum(sapply(xy.internew,function(x)newedge[1]%in%x))<2){case = "c"
       } else case = "d"
     }
-    # if(length(xy.intersect)>0 | 
-    #    (ifelse(sum(x.index)==1,ifelse(length(C[[which(x.index)]])==1,TRUE,FALSE),FALSE) & 
-    #     ifelse(sum(y.index)==1,ifelse(length(C[[which(y.index)]])==1,TRUE,FALSE),FALSE))){
-    #   if(sum(adj.index)>0 |
-    #      (ifelse(sum(x.index)==1,ifelse(length(C[[which(x.index)]])==1,TRUE,FALSE),FALSE) & 
-    #       ifelse(sum(y.index)==1,ifelse(length(C[[which(y.index)]])==1,TRUE,FALSE),FALSE))){
-    #     out = TRUE
-    #     
-    #     ## indentify case a) b) c) d) in Figure 3 Green Thomas
-    #     #if((sum(adj.new)==1) & (xy.gridnew[adj.new,1]==xy.gridnew[adj.new,2])){case = "a"
-    #     if(length(xy.internew)==1 | 
-    #        (ifelse(sum(x.index)==1,ifelse(length(C[[which(x.index)]])==1,TRUE,FALSE),FALSE) & 
-    #         ifelse(sum(y.index)==1,ifelse(length(C[[which(y.index)]])==1,TRUE,FALSE),FALSE))){case = "a"
-    #     } else if(!sum(sapply(xy.internew,function(x)newedge[2]%in%x))){case = "b"
-    #     } else if(!sum(sapply(xy.internew,function(x)newedge[1]%in%x))){case = "c"
-    #     } else case = "d"
-    #   }
-    # }      
-  }
-  ## cliques of interest (XS and YS in Figure 3 Green Thomas)
-  ## TO BE CHANGED
-  # if(out){
-  #   if(!connect){
-  #     if(newedge[1]%in%C.new[[which(adj.new)]]){
-  #       XS = C.new[[which(adj.new)]]
-  #       YS = C.new[[which(adj.new)+1]]
-  #     } else{
-  #       YS = C.new[[which(adj.new)]]
-  #       XS = C.new[[which(adj.new)+1]]
-  #     }
-  #   } else{
-  #     if(newedge[1]%in%C[[which(adj.index)]]){
-  #       XS = C[[which(adj.index)]]
-  #       YS = C[[which(adj.index)+1]]       
-  #     } else{
-  #       YS = C[[which(adj.index)]]
-  #       XS = C[[which(adj.index)+1]]
-  #     }
-  #   }
-  # }
-  
-  return(list(
+
+return(list(
     out     = out,
     case    = case,
     connect = connect,
