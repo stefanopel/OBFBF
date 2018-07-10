@@ -169,16 +169,3 @@ OBFBF = function(Y,X,M,a.gamma=0.5,a.G=0.5){
       
       return(list(chain.gamma=chain.gamma,chain.G=chain.G,t1=t1,accept=accept))
     }
-
-    ####################
-    ## run our method ##
-    ####################
-    out = OBFBF(Y,X,M)
-    
-    ## posterior means
-    (post.g = colMeans(out$chain.gamma[(M/2):M,]))
-    (post.G = colMeans(out$chain.G[(M/2):M,]))
-    
-    # computational time
-    (t1 = out$t1)
-    
